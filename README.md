@@ -111,7 +111,7 @@ Profile Update
 ▶️ How to Run
 
 1️⃣ Clone Repository
-git clone https://github.com/your-username/ParabankAutomation-AdvancedFramework.git
+git clone https://github.com/SharifulIslamSabuj/ParabankAutomation-AdvancedFramework.git
 
 2️⃣ Import Project
 Open IntelliJ IDEA / Eclipse
