@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+// Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation 'org.seleniumhq.selenium:selenium-java:4.40.0'
+
+    // Source: https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation 'org.testng:testng:7.12.0'
+
+    //dummy text generator
+    // https://mvnrepository.com/artifact/com.thedeanda/lorem
+    testImplementation 'com.thedeanda:lorem:2.2'
+
+    implementation 'commons-io:commons-io:2.15.1'
+
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    // Updated ExtentReports version
+    testImplementation 'com.aventstack:extentreports:5.1.2'
+
+    //POI for Excel handling
+    testImplementation 'org.apache.poi:poi:5.5.1'
+    testImplementation 'org.apache.poi:poi-ooxml:5.5.1'
+
+    // Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    // Updated Allure TestNG version
+    implementation("io.qameta.allure:allure-testng:2.32.0")
+
+    // Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    implementation("io.github.bonigarcia:webdrivermanager:6.3.3")
+
+// Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testImplementation("org.slf4j:slf4j-simple:2.0.17")
+
+    // Source: https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation("org.assertj:assertj-core:3.27.7")
+}
+
+test {
+    useTestNG()
+}

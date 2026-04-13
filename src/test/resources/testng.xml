@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ParaBank Parallel Suite" parallel="tests" thread-count="3">
+
+    <listeners>
+        <listener class-name="com.parabank.parasoft.report.TestListener"/>
+    </listeners>
+
+    <test name="Login Tests">
+        <classes>
+            <class name="com.parabank.parasoft.test.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Register Tests">
+        <classes>
+            <class name="com.parabank.parasoft.test.RegisterTest"/>
+        </classes>
+    </test>
+
+</suite>
