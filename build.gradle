@@ -39,7 +39,13 @@ dependencies {
 }
 
 test {
-    useTestNG()
+    useTestNG {
+        // Gradle's TestNG integration builds its own suite from the compiled test
+        // classes and ignores testng.xml (including its <listeners> block) unless
+        // a suite XML is explicitly configured. Registering the listener here is
+        // what actually makes it run under `./gradlew test`.
+        listeners << "com.parabank.parasoft.report.TestListener"
+    }
 
     // Forwards -DbrowserName=... from the Gradle command line into the forked
     // test JVM, so CI can override the browser without touching config.properties.
