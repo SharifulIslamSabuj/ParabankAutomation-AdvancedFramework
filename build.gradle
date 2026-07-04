@@ -40,4 +40,10 @@ dependencies {
 
 test {
     useTestNG()
+
+    // Forwards -DbrowserName=... from the Gradle command line into the forked
+    // test JVM, so CI can override the browser without touching config.properties.
+    if (System.getProperty("browserName") != null) {
+        systemProperty "browserName", System.getProperty("browserName")
+    }
 }

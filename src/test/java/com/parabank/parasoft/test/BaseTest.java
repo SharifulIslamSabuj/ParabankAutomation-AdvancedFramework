@@ -39,7 +39,7 @@ public class BaseTest {
     @BeforeMethod
     public void browserSetup() {
 
-        String browserName = prop.getProperty("browserName");
+        String browserName = System.getProperty("browserName", prop.getProperty("browserName"));
 
         WebDriver driver;
 
