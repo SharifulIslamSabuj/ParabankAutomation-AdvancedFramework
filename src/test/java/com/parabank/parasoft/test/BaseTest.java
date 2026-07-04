@@ -31,8 +31,8 @@ public class BaseTest {
         prop = new Properties();
         try (FileInputStream inputStream = new FileInputStream(path)) {
             prop.load(inputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load config.properties from: " + path, e);
         }
     }
 

@@ -1,24 +1,11 @@
 package com.parabank.parasoft.pages;
 
-import com.parabank.parasoft.util.DriverManager;
-import com.parabank.parasoft.util.ParaBankUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 public abstract class Page {
-
-    protected WebDriverWait wait;
-
-    public Page() {
-        this.wait = new WebDriverWait(
-                DriverManager.getDriver(),
-                Duration.ofSeconds(ParaBankUtil.WAIT_TIME)
-        );
-    }
 
     public abstract WebElement getElement(By selector);
 

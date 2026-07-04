@@ -52,6 +52,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ReportTestManager.getTest().log(Status.PASS, "Test Passed");
+        ReportTestManager.unload();
     }
 
     @Override
@@ -78,11 +79,14 @@ public class TestListener implements ITestListener {
         } else {
             ReportTestManager.getTest().fail(result.getThrowable());
         }
+
+        ReportTestManager.unload();
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         ReportTestManager.getTest().log(Status.SKIP, "Test Skipped");
+        ReportTestManager.unload();
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.parabank.parasoft.pages;
 import com.aventstack.extentreports.Status;
 import com.parabank.parasoft.report.ReportTestManager;
 import com.parabank.parasoft.util.DriverManager;
+import com.parabank.parasoft.util.ParaBankUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BasePage extends Page {
@@ -35,19 +35,13 @@ public class BasePage extends Page {
 
     @Override
     public List<WebElement> getElements(By selector) {
-        try {
-            addInfo("Finding elements: " + selector);
+        addInfo("Finding elements: " + selector);
 
-            WebDriver driver = DriverManager.getDriver();
-            List<WebElement> elements = driver.findElements(selector);
+        WebDriver driver = DriverManager.getDriver();
+        List<WebElement> elements = driver.findElements(selector);
 
-            addInfo("Elements found: " + selector);
-            return elements;
-
-        } catch (Exception e) {
-            addFailInfo("Elements NOT found: " + selector);
-            return new ArrayList<>();
-        }
+        addInfo("Elements found: " + selector);
+        return elements;
     }
 
     @Override
@@ -73,7 +67,7 @@ public class BasePage extends Page {
 
             WebDriverWait wait = new WebDriverWait(
                     DriverManager.getDriver(),
-                    Duration.ofSeconds(10)
+                    Duration.ofSeconds(ParaBankUtil.WAIT_TIME)
             );
 
             wait.until(
@@ -95,7 +89,7 @@ public class BasePage extends Page {
 
             WebDriverWait wait = new WebDriverWait(
                     DriverManager.getDriver(),
-                    Duration.ofSeconds(10)
+                    Duration.ofSeconds(ParaBankUtil.WAIT_TIME)
             );
 
             wait.until(
@@ -117,7 +111,7 @@ public class BasePage extends Page {
 
             WebDriverWait wait = new WebDriverWait(
                     DriverManager.getDriver(),
-                    Duration.ofSeconds(10)
+                    Duration.ofSeconds(ParaBankUtil.WAIT_TIME)
             );
 
             wait.until(
@@ -140,7 +134,7 @@ public class BasePage extends Page {
 
             WebDriverWait wait = new WebDriverWait(
                     DriverManager.getDriver(),
-                    Duration.ofSeconds(10)
+                    Duration.ofSeconds(ParaBankUtil.WAIT_TIME)
             );
 
             wait.until(

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class ParaBankUtil {
 
-    public static final int WAIT_TIME = 30;
+    public static final int WAIT_TIME = 10;
     public static final String TITLE = "ParaBank | Welcome | Online Banking";
 
     public static Object[][] getTestData(String sheetName) {
