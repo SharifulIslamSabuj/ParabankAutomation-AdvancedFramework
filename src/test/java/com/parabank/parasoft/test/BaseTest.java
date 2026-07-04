@@ -82,13 +82,11 @@ public class BaseTest {
             throw new IllegalArgumentException("Unsupported browser: " + browserName);
         }
 
-        // 🔥 Store in ThreadLocal
         DriverManager.setDriver(driver);
 
         driver.manage().window().maximize();
         driver.get(prop.getProperty("baseUrl"));
 
-        // ❗ IMPORTANT FIX: no driver passed
         pg.set(new BasePage());
     }
 

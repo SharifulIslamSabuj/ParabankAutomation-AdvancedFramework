@@ -13,7 +13,6 @@ public class OpenNewAccountPage extends BasePage {
         super();
     }
 
-    // 1️⃣ Select Account Type (CHECKING / SAVINGS)
     public OpenNewAccountPage selectAccountType(String accountType) {
         ParaBankUtil.waitForDomStable();
 
@@ -25,7 +24,6 @@ public class OpenNewAccountPage extends BasePage {
         return this;
     }
 
-    // 2️⃣ Select First Available Account
     public OpenNewAccountPage selectFirstAvailableAccount() {
         ParaBankUtil.waitForDomStable();
 
@@ -44,7 +42,6 @@ public class OpenNewAccountPage extends BasePage {
         return this;
     }
 
-    // 3️⃣ Click Open Account Button
     public OpenedAccountPage clickOpenNewAccountButton() {
         ParaBankUtil.waitForDomStable();
 

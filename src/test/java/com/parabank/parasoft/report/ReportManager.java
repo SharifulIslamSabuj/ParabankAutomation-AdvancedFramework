@@ -6,7 +6,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ReportManager {
 
-    private static volatile ExtentReports extent; // 🔥 important for thread safety
+    private static volatile ExtentReports extent; // volatile required for safe double-checked locking below
     private static final Object lock = new Object();
     private static String reportPath;
 
@@ -41,7 +41,7 @@ public class ReportManager {
 
         extent.attachReporter(sparkReporter);
 
-        // 🔥 Global system info (useful for real projects)
+        // System metadata surfaced in the ExtentReports dashboard
         extent.setSystemInfo("Project", "ParaBank Automation Framework");
         extent.setSystemInfo("Framework Type", "Advanced POM + TestNG");
         extent.setSystemInfo("Execution Mode", "Parallel Ready");

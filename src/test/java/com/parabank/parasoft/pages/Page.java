@@ -32,7 +32,9 @@ public abstract class Page {
 
     public abstract void waitForElementToBeVisible(By selector);
 
-    // ✅ FIXED: no constructor dependency needed
+    // Page objects use a no-arg constructor and resolve the WebDriver from
+    // DriverManager's ThreadLocal, so reflection is used here instead of
+    // injecting dependencies through the constructor.
     public <T extends BasePage> T navigateToPage(Class<T> pageClass) {
         try {
             return pageClass.getDeclaredConstructor().newInstance();

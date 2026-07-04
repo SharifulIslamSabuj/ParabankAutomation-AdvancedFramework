@@ -15,8 +15,6 @@ import java.util.List;
 
 public class BasePage extends Page {
 
-    // ❌ REMOVED constructor completely (IMPORTANT FIX)
-
     @Override
     public WebElement getElement(By selector) {
         try {

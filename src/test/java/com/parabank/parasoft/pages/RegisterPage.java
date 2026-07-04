@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 
 public class RegisterPage extends BasePage {
 
-    // ❌ removed constructor (important for parallel framework)
-
     private final By firstName = By.id("customer.firstName");
     private final By lastName = By.id("customer.lastName");
     private final By address = By.id("customer.address.street");

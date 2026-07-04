@@ -8,7 +8,7 @@ public class ReportTestManager {
 
     private static ExtentReports extent = ReportManager.getInstance();
 
-    // 🔥 Thread-safe test storage (BEST PRACTICE)
+    // ThreadLocal isolates each thread's ExtentTest instance during parallel execution
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     // Start test for current thread
@@ -34,7 +34,7 @@ public class ReportTestManager {
         getTest().log(Status.INFO, message);
     }
 
-    // Optional cleanup (VERY IMPORTANT for memory safety)
+    // Clears the ThreadLocal entry to avoid leaking ExtentTest references when threads are reused
     public static void unload() {
         extentTest.remove();
     }

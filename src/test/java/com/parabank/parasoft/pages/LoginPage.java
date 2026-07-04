@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
 
-    // ❌ REMOVED constructor (IMPORTANT for parallel framework)
-
     private final By username = By.cssSelector("input[name='username']");
     private final By password = By.xpath("//input[@name='password']");
     private final By loginBtn = By.cssSelector("input[value='Log In']");
