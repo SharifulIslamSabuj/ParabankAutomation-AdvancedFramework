@@ -38,14 +38,6 @@ public class ParaBankUtil {
         }
     }
 
-    public static void waitForDomStable() {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
     public static String generateUniqueUsername(String baseUsername) {
         return baseUsername + "_" + System.currentTimeMillis();
     }

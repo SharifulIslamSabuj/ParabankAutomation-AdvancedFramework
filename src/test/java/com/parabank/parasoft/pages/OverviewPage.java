@@ -1,6 +1,5 @@
 package com.parabank.parasoft.pages;
 
-import com.parabank.parasoft.util.ParaBankUtil;
 import org.openqa.selenium.By;
 
 public class OverviewPage extends BasePage {
@@ -15,19 +14,19 @@ public class OverviewPage extends BasePage {
     }
 
     public OpenNewAccountPage clickOpenNewAccountLink() {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeClickable(By.cssSelector("a[href='openaccount.htm']"));
         getElement(By.cssSelector("a[href='openaccount.htm']")).click();
         return navigateToPage(OpenNewAccountPage.class);
     }
 
     public RequestLoanPage clickRequestLoanLink() {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeClickable(By.cssSelector("a[href='requestloan.htm']"));
         clickElement(By.cssSelector("a[href='requestloan.htm']"));
         return navigateToPage(RequestLoanPage.class);
     }
 
     public UpdateProfilePage clickUpdateProfileLink() {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeClickable(By.cssSelector("a[href='updateprofile.htm']"));
         clickElement(By.cssSelector("a[href='updateprofile.htm']"));
         return navigateToPage(UpdateProfilePage.class);
     }

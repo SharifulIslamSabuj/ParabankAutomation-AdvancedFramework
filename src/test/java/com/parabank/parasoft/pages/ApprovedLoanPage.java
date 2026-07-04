@@ -1,6 +1,5 @@
 package com.parabank.parasoft.pages;
 
-import com.parabank.parasoft.util.ParaBankUtil;
 import org.openqa.selenium.By;
 
 public class ApprovedLoanPage extends BasePage {
@@ -10,7 +9,6 @@ public class ApprovedLoanPage extends BasePage {
     }
 
     public boolean isApprovedLoanId() {
-        ParaBankUtil.waitForDomStable();
-        return !getElements(By.id("newAccountId")).isEmpty();
+        return isElementVisible(By.id("newAccountId"));
     }
 }

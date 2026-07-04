@@ -32,6 +32,12 @@ public abstract class Page {
 
     public abstract void waitForElementToBeVisible(By selector);
 
+    public abstract void waitForElementToBeClickable(By selector);
+
+    public abstract boolean isElementVisible(By selector);
+
+    public abstract void waitForOptionsCountGreaterThan(By optionsSelector, int index);
+
     // Page objects use a no-arg constructor and resolve the WebDriver from
     // DriverManager's ThreadLocal, so reflection is used here instead of
     // injecting dependencies through the constructor.

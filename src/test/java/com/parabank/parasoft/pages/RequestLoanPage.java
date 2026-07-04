@@ -1,6 +1,5 @@
 package com.parabank.parasoft.pages;
 
-import com.parabank.parasoft.util.ParaBankUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
@@ -11,7 +10,7 @@ public class RequestLoanPage extends BasePage {
     }
 
     public RequestLoanPage fillLoanAmount(String loanAmount) {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeVisible(By.xpath("//input[@id='amount']"));
 
         getElement(By.xpath("//input[@id='amount']"))
                 .sendKeys(loanAmount);
@@ -20,7 +19,7 @@ public class RequestLoanPage extends BasePage {
     }
 
     public RequestLoanPage fillDownpayment(String downPaymentAmount) {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeVisible(By.xpath("//input[@id='downPayment']"));
 
         getElement(By.xpath("//input[@id='downPayment']"))
                 .sendKeys(downPaymentAmount);
@@ -29,7 +28,7 @@ public class RequestLoanPage extends BasePage {
     }
 
     public RequestLoanPage selectAccount(int index) {
-        ParaBankUtil.waitForDomStable();
+        waitForOptionsCountGreaterThan(By.xpath("//select[@id='fromAccountId']/option"), index);
 
         Select select = new Select(
                 getElement(By.xpath("//select[@id='fromAccountId']"))
@@ -40,7 +39,7 @@ public class RequestLoanPage extends BasePage {
     }
 
     public ApprovedLoanPage clickApplyNowButton() {
-        ParaBankUtil.waitForDomStable();
+        waitForElementToBeClickable(By.xpath("//input[@value='Apply Now']"));
 
         getElement(By.xpath("//input[@value='Apply Now']"))
                 .click();
