@@ -14,6 +14,8 @@ public class RegisterTest extends BaseTest {
     @Test(description = "Register with hardcoded data")
     public void registerShouldSucceedWithHardData() {
 
+        String username = ParaBankUtil.generateUniqueUsername("shariful13");
+
         OverviewPage page = getPg()
                 .navigateToPage(LoginPage.class)
                 .clickRegisterLink()
@@ -25,7 +27,7 @@ public class RegisterTest extends BaseTest {
                 .fillZipCode("1216")
                 .fillPhone("12345643")
                 .fillSSN("SSN123")
-                .fillUsername("shariful13")
+                .fillUsername(username)
                 .fillPassword("shariful13")
                 .fillConfirmPassword("shariful13")
                 .clickRegisterButtonWithSuccess();

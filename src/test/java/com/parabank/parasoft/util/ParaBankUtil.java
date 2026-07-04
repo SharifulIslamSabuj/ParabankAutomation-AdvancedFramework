@@ -45,4 +45,8 @@ public class ParaBankUtil {
             Thread.currentThread().interrupt();
         }
     }
+
+    public static String generateUniqueUsername(String baseUsername) {
+        return baseUsername + "_" + System.currentTimeMillis();
+    }
 }
