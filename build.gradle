@@ -40,12 +40,13 @@ dependencies {
 
 test {
     useTestNG {
-        // Gradle's TestNG integration builds its own suite from the compiled test
-        // classes and ignores testng.xml (including its <listeners> block) unless
-        // a suite XML is explicitly configured. Registering the listener here is
-        // what actually makes it run under `./gradlew test`.
-        listeners << "com.parabank.parasoft.report.TestListener"
-        listeners << "com.parabank.parasoft.report.RetryAnnotationTransformer"
+        // Gradle's TestNG integration builds its own synthetic suite from the compiled
+        // test classes by default, ignoring testng.xml entirely (including its
+        // <listeners> block and its parallel/thread-count attributes). Pointing Gradle
+        // at the real suite file makes testng.xml the single source of truth: its
+        // <listeners> and parallel="tests" thread-count="3" now genuinely take effect
+        // under `./gradlew test`.
+        suites "src/test/resources/testng.xml"
     }
 
     // Forwards -DbrowserName=... from the Gradle command line into the forked

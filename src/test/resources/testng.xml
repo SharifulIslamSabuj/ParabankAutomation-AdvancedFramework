@@ -4,6 +4,7 @@
 
     <listeners>
         <listener class-name="com.parabank.parasoft.report.TestListener"/>
+        <listener class-name="com.parabank.parasoft.report.RetryAnnotationTransformer"/>
     </listeners>
 
     <test name="Login Tests">
