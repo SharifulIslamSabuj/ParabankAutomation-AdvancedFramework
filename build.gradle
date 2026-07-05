@@ -45,6 +45,7 @@ test {
         // a suite XML is explicitly configured. Registering the listener here is
         // what actually makes it run under `./gradlew test`.
         listeners << "com.parabank.parasoft.report.TestListener"
+        listeners << "com.parabank.parasoft.report.RetryAnnotationTransformer"
     }
 
     // Forwards -DbrowserName=... from the Gradle command line into the forked
