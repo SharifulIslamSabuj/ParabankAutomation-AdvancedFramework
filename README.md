@@ -105,6 +105,14 @@ src
 - Chrome, Firefox, Edge, Safari
 - Headless Chrome and headless Firefox
 
+### Test Reliability
+- TestNG retry analyzer (`RetryAnalyzer` + `RetryAnnotationTransformer`): automatically retries a failed test once, applied globally with no per-test annotation needed
+- Retry attempts are logged to both console output and ExtentReports — a retried test is never silently reported as a clean single-attempt pass
+
+### CI/CD
+- GitHub Actions workflow runs automatically on push and pull request to `main`
+- Currently executes `LoginTest` only, in headless Chrome — the full suite is not yet included (see Roadmap below)
+
 ---
 
 ## 🧪 Test Coverage
@@ -174,13 +182,24 @@ On test failure, screenshots are saved to `/build/screenshots/` and are also emb
 
 ---
 
+## 🤖 CI/CD
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs automatically on every push and pull request to `main`:
+
+- JDK 17, with Gradle dependency caching
+- Executes `LoginTest` only, using headless Chrome (`-DbrowserName=headlessChrome`)
+- Does not yet run `RegisterTest` or the full suite — deliberately scoped down while the live ParaBank demo's registration flow is monitored for stability
+
+Expanding CI to run the full suite is tracked in the Roadmap below.
+
+---
+
 ## 🗺️ Roadmap
 
 Planned for future phases:
 - Test coverage for Open New Account, Loan Request, and Profile Update flows
 - Allure HTML report generation and CI publishing
-- CI/CD pipeline (GitHub Actions)
-- Explicit-wait replacement for remaining hard waits
+- Expanding CI to run the full test suite, not just `LoginTest`
 
 ---
 
