@@ -1,5 +1,26 @@
 # 📌 ParabankAutomation-AdvancedFramework
 
+## Table of Contents
+
+- [Overview](#-overview)
+- [Tech Stack](#-tech-stack)
+- [Framework Architecture](#️-framework-architecture)
+- [Project Structure](#-project-structure)
+- [Key Features](#-key-features)
+- [Test Coverage](#-test-coverage)
+- [Prerequisites](#-prerequisites)
+- [How to Run](#️-how-to-run)
+- [Parallel Execution](#-parallel-execution)
+- [Reporting](#-reporting)
+- [Sample Report](#️-sample-report)
+- [Screenshots](#-screenshots)
+- [CI/CD](#-cicd)
+- [Roadmap](#️-roadmap)
+- [Author](#-author)
+- [Note](#-note)
+
+---
+
 ## 🚀 Overview
 
 ParabankAutomation-AdvancedFramework is a Selenium automation framework built using Java, Selenium WebDriver, TestNG, and Gradle, targeting the ParaBank demo application.
@@ -130,6 +151,15 @@ src
 
 ---
 
+## ✅ Prerequisites
+
+- **Java 17** — matches the JDK version used in CI
+- **Git**
+- **Google Chrome** — the default browser for local runs (see [Supported Browsers](#supported-browsers) below)
+- **Internet connection** — this framework runs against the live ParaBank demo (`https://parabank.parasoft.com`), not a local mock
+
+---
+
 ## ▶️ How to Run
 
 ### 1. Clone Repository
@@ -150,11 +180,48 @@ browserName=chrome
 ```
 
 ### 4. Run Tests
-Using Gradle:
+
+Run the entire suite:
 ```bash
 ./gradlew clean test
 ```
+
+Run a single test class:
+```bash
+./gradlew test --tests "com.parabank.parasoft.test.LoginTest"
+```
+
+Run a single test method:
+```bash
+./gradlew test --tests "com.parabank.parasoft.test.LoginTest.checkTitle"
+```
+
+Run with headless Chrome:
+```bash
+./gradlew test -DbrowserName=headlessChrome
+```
+
+Run using the browser override (`-DbrowserName`):
+```bash
+./gradlew test -DbrowserName=firefox
+```
+
 Using TestNG directly: run `src/test/resources/testng.xml`
+
+### Supported Browsers
+
+Set via `browserName` in `config.properties`, or overridden with `-DbrowserName` on the command line:
+
+- `chrome`
+- `firefox`
+- `edge`
+- `safari`
+- `headlessChrome`
+- `headlessFirefox`
+
+### Browser Override
+
+`config.properties` sets the default browser for local runs. Passing `-DbrowserName=<value>` on the Gradle command line overrides that default for a single run without editing the file — this is exactly how CI forces `headlessChrome` while local runs keep whatever default is set in `config.properties`.
 
 ---
 
@@ -173,6 +240,14 @@ Two reporting mechanisms are present in this project, at different levels of mat
 
 - **ExtentReports (primary, fully configured):** generates a full HTML report at `build/extentReport/Report.html`, including test execution status, step-by-step logs, and embedded failure screenshots.
 - **Allure (raw results only):** the `allure-testng` dependency automatically captures raw result/container JSON files into `/allure-results/` during every test run. HTML report generation (`allure generate` / `allure serve`) and CI publishing are **not configured yet** — planned for a later phase.
+
+---
+
+## 🖼️ Sample Report
+
+A rendered example of the ExtentReports HTML output described above:
+
+> Replace this placeholder with a screenshot of `build/extentReport/Report.html`
 
 ---
 
